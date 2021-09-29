@@ -18,8 +18,10 @@
   "homepage": "https://github.com/Express-Loan-for-Students-E-L-S/ELS-Backend-SBIServer#readme",
   "dependencies": {
     "@grpc/proto-loader": "^0.6.5",
+    "dotenv": "^10.0.0",
     "google-protobuf": "^3.18.0",
     "grpc": "^1.24.11",
+    "mongoose": "^6.0.8",
     "uuid": "^8.3.2"
   }
 }
