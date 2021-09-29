@@ -1,0 +1,25 @@
+{
+  "name": "els-backend-sbiserver",
+  "version": "1.0.0",
+  "description": "This is dummy State Bank of India Server.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Express-Loan-for-Students-E-L-S/ELS-Backend-SBIServer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Express-Loan-for-Students-E-L-S/ELS-Backend-SBIServer/issues"
+  },
+  "homepage": "https://github.com/Express-Loan-for-Students-E-L-S/ELS-Backend-SBIServer#readme",
+  "dependencies": {
+    "@grpc/proto-loader": "^0.6.5",
+    "google-protobuf": "^3.18.0",
+    "grpc": "^1.24.11",
+    "uuid": "^8.3.2"
+  }
+}
