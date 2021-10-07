@@ -1,27 +1,47 @@
 syntax = "proto3";
 service BankService {
-    rpc GetUserBankInfo (PhoneNum) returns (UserBankInfo) {}
+    rpc GetConnectedBanks (GetConnectedBanksRequest) returns (GetConnectedBanksResponse) {}
+    rpc GetUserBankInfo (GetUserBankInfoRequest) returns (GetUserBankInfoResponse) {}
     rpc RequestLoanOptions (Explore_Info) returns (LoanOptionList) {}
 }
 message Empty {}
 
-message PhoneNum {
+message GetConnectedBanksRequest {
     string phoneNum = 1;
 }
 
-message UserBankInfo {
-    string fname = 1;
-    string lname = 2;
-    string gender = 3;
-    string address = 4;
-    string phoneNum = 5;
-    string dob = 6;
-    string adharNum = 7;
-    string panNum = 8;
-    string accountNum = 9;
-    string ifscCode = 10;
-    string accountType = 11;
-    string bankStatement = 12;
+message BankAccountInfo {
+    string id = 1;
+    string bankName = 2;
+    string accountNum = 3;
+    string accountType = 4;
+    string ifscCode = 5;
+}
+
+message GetConnectedBanksResponse {
+    repeated BankAccountInfo connectedBankAccounts = 1;
+}
+
+message GetUserBankInfoRequest {
+    string id = 1;
+}
+
+message GetUserBankInfoResponse {
+    string id = 1;
+    string fname = 2;
+    string lname = 3;
+    string gender = 4;
+    string address = 5;
+    string phoneNum = 6;
+    string dob = 7;
+    string fatherName = 8;
+    string motherName = 9;
+    string adharNum = 10;
+    string panNum = 11;
+    string bankName = 12;
+    string accountNum = 13;
+    string ifscCode = 14;
+    string accountType = 15;
 }
 
 message Explore_Info {
@@ -29,21 +49,24 @@ message Explore_Info {
     string fname = 2;
     string lname = 3;
     string phoneNum = 4;
-    int32 score10 = 5;
-    int32 score12 = 6;
-    int32 estimatedAmount = 7;
-    string collegeName = 8;
+    string dob = 5;
+    int32 percent10 = 6;
+    int32 percent12 = 7;
+    string entranceExamName = 8;
+    int32 examMarks = 9;
+    string collegeName = 10;
+    int32 expectedFee = 11;
 }
 
 message LoanOption {
-    string bankName = 1;
-    int32 maxAmount = 2;
-    float rateOfInterest = 3;
-    int32 duration = 4;
-    int32 collateral = 5;
+    string id = 1;
+    string bankName = 2;
+    int32 maxAmount = 3;
+    float rateOfInterest = 4;
+    int32 duration = 5;
+    int32 collateral = 6;
 }
 
 message LoanOptionList {
-    LoanOption loanOptions = 1;
+    repeated LoanOption loanOptions = 1;
 }
-
