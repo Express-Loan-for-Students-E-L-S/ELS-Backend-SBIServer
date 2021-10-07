@@ -60,9 +60,49 @@ server.addService(bankProto.BankService.service, {
             }
         })
     },
+
+    requestLoanOptions: (call, callback) => {
+        callback(null, {
+            loanOptions: [
+                {
+                    bankName: "State Bank of India",
+                    maxAmount: 1000000,
+                    rateOfInterest: 5,
+                    duration: 5,
+                    collateral: 1000000
+                },
+                {
+                    bankName: "ICICI",
+                    maxAmount: 1200000,
+                    rateOfInterest: 8,
+                    duration: 7,
+                    collateral: 1600000
+                },
+                {
+                    bankName: "Bank of Baroda",
+                    maxAmount: 800000,
+                    rateOfInterest: 5,
+                    duration: 6,
+                    collateral: 500000
+                },
+                {
+                    bankName: "HDFC",
+                    maxAmount: 1150000,
+                    rateOfInterest: 6,
+                    duration: 4,
+                    collateral: 1000000
+                },
+            ]
+        })
+    }
+
 })
 
-
+// string bankName = 1;
+//     int32 maxAmount = 2;
+//     float rateOfInterest = 3;
+//     int32 duration = 4;
+//     int32 collateral = 5;
 server.bind('127.0.0.1:50051', grpc.ServerCredentials.createInsecure())
-console.log('Server running at http://127.0.0.1:50051')
+console.log('Bank Server running at http://127.0.0.1:50051')
 server.start()

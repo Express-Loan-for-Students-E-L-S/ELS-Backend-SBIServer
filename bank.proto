@@ -1,7 +1,7 @@
 syntax = "proto3";
 service BankService {
     rpc GetUserBankInfo (PhoneNum) returns (UserBankInfo) {}
-    // rpc RequestLoanOptions (Person_Info) returns () {}
+    rpc RequestLoanOptions (Explore_Info) returns (LoanOptionList) {}
 }
 message Empty {}
 
@@ -36,8 +36,14 @@ message Explore_Info {
 }
 
 message LoanOption {
-    float interest_rate = 1;
-    int32 duration = 2;
-    int32 colatral = 3;
-
+    string bankName = 1;
+    int32 maxAmount = 2;
+    float rateOfInterest = 3;
+    int32 duration = 4;
+    int32 collateral = 5;
 }
+
+message LoanOptionList {
+    LoanOption loanOptions = 1;
+}
+
